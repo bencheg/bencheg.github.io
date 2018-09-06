@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2018-09-06T11:58:26+03:00</updated><id>http://0.0.0.0:4000/</id><title type="html">Tema B.</title><subtitle>Это мой блог и я в него пишу.</subtitle><entry><title type="html">Уведомления с Synology в telegram</title><link href="http://0.0.0.0:4000/flexget-telegram-notify/" rel="alternate" type="text/html" title="Уведомления с Synology в telegram" /><published>2017-12-22T00:00:00+03:00</published><updated>2017-12-22T00:00:00+03:00</updated><id>http://0.0.0.0:4000/flexget-telegram-notify</id><content type="html" xml:base="http://0.0.0.0:4000/flexget-telegram-notify/">&lt;p&gt;Заметил, что я чаще пользуюсь телеграмом, нежели ватсапом. На работе мы даже перевели всю систему уведомлений через бота. Плюс через API обратно даём некоторые простые команды для немедленной реакции на эти уведомления - перезагрузить устройство, заблокировать и т.п.&lt;/p&gt;
+
+&lt;p&gt;В общем, &lt;a href=&quot;/flexget-on-synology-nas/&quot;&gt;решил я научить Flexget&lt;/a&gt; слать уведомления сразу в telegram. Это оказалось не сложно.
+&lt;!--more--&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Ставим-python-telegram-bot&quot;&gt;Ставим python-telegram-bot&lt;/h3&gt;
+
+&lt;p&gt;Для работы нам будет нужен этот пакет.&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;/volume1/@appstore/flexget/env/bin/pip install python-telegram-bot
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Далее нам нужно создать бота. &lt;a href=&quot;https://core.telegram.org/bots#6-botfather&quot;&gt;Регистрируем у BotFather&lt;/a&gt; своего бота - отправляем &lt;code class=&quot;highlighter-rouge&quot;&gt;/newbot&lt;/code&gt; и следуем подсказкам. 
+Получаем bot_token, сохраняем, он понадобится нам для конфига flexget.&lt;/p&gt;
+
+&lt;h3 id=&quot;Правим-конфиг-flexget&quot;&gt;Правим конфиг Flexget&lt;/h3&gt;
+
+&lt;p&gt;Добавляем к задаче раздел notify:&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;s&quot;&gt;notify&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;entries&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;flexget&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;started'&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;via&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;telegram&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;s&quot;&gt;bot_token&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;xxx:XXXXXXXXXXX&lt;/span&gt;
+              &lt;span class=&quot;s&quot;&gt;parse_mode&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;markdown'&lt;/span&gt;
+              &lt;span class=&quot;s&quot;&gt;recipients&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;lt;ваш_юзернем&amp;gt;'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Всё, теперь можно наслаждаться результатом: 
+&lt;img src=&quot;/images/flexget-telegram.jpg&quot; alt=&quot;flexget telegram&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Synology" /><category term="Flexget" /><category term="NAS" /><category term="telegram" /><summary type="html">Заметил, что я чаще пользуюсь телеграмом, нежели ватсапом. На работе мы даже перевели всю систему уведомлений через бота. Плюс через API обратно даём некоторые простые команды для немедленной реакции на эти уведомления - перезагрузить устройство, заблокировать и т.п. В общем, решил я научить Flexget слать уведомления сразу в telegram. Это оказалось не сложно.</summary></entry><entry><title type="html">Автоматизируем скачивание торрентов на Synology</title><link href="http://0.0.0.0:4000/flexget-on-synology-nas/" rel="alternate" type="text/html" title="Автоматизируем скачивание торрентов на Synology" /><published>2017-10-04T00:00:00+03:00</published><updated>2017-10-04T00:00:00+03:00</updated><id>http://0.0.0.0:4000/flexget-on-synology-nas</id><content type="html" xml:base="http://0.0.0.0:4000/flexget-on-synology-nas/">&lt;h2 id=&quot;Задача&quot;&gt;Задача&lt;/h2&gt;
+&lt;p&gt;tenyardtracker.com - закрытый торрент-трекер, где выкладывают записи игр по американскому футболу. Что бы поддерживать нормальный рейтинг, нужно как можно раньше присоединяться к раздаче. Но это сложно, разница во времени между нами и США большая, и я в это время как правило сплю. Добавляем к этому нерабочий RSS у трекера и для скачивания нужна авторизация.
+&lt;!--more--&gt;
+Задача автоматизировать эту процедуру. Как только появляется раздача, сразу скачиваем торрент.&lt;/p&gt;
+
+&lt;h3 id=&quot;utorrent-rss&quot;&gt;uTorrent RSS&lt;/h3&gt;
+&lt;p&gt;Конечно, можно было бы решить задачу старым дедовским способом, uTorrent+RSS+данные из cookie файла, но нет - RSS кривой:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&amp;gt;&lt;/span&gt;
+https://tenyardtracker.com/download.php/35382/NFL.2017.Week.04.Redskins.vs.Chiefs.720p60.TYT.mp4.torrent
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/link&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;А должно быть так:&lt;/p&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&amp;gt;&lt;/span&gt;
+https://tenyardtracker.com/download.php?torrent=35382
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/link&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Это решается маленьким скриптом на php:&lt;/p&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$code&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file_get_contents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://tenyardtracker.com/rssdd.xml&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$pattern&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/https\:\/\/tenyardtracker\.com\/download\.php\/(\d+)\/[^&amp;lt;]*/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;preg_match_all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$pattern&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$tmp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$replacement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://tenyardtracker.com/download.php?torrent=$1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;preg_replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$pattern&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$replacement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Если кому данный способ подходит, пользуйтесь: &lt;a href=&quot;https://marand.ru/tyt/tyt.php&quot;&gt;https://marand.ru/tyt/tyt.php&lt;/a&gt; &lt;br /&gt;
+Что бы добавить в uTorrent в качестве RSS, добавьте эту строку целиком:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://marand.ru/tyt/tyt.php:COOKIE:tytracker_ipcheck=xxx;tytracker_pass=xxx;tytracker_uid=xxx;xf_session=xxx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Данные подставьте из своего cookie файла. 
+Осталось настроить фильтр на вашу любимую команду :)&lt;/p&gt;
+
+&lt;h3 id=&quot;synology-nas&quot;&gt;Synology NAS&lt;/h3&gt;
+&lt;p&gt;В наличии есть NAS Synology и мне захотелось перевесить эту задачу на него. И получилось :)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://flexget.com/&quot;&gt;Flexget&lt;/a&gt; это что-то невероятное. Программа умеет логиниться на сайты, переходить по страницам, парсить HTML и скачивать то, что укажешь. Может отличать просмотренные серии от новых, может скачивать фильмы с более высоким качеством по мере появления и т.д. Повторюсь - это какой-то монстр. Почитайте &lt;a href=&quot;https://flexget.com/Configuration&quot;&gt;документацию&lt;/a&gt; и посмотрите &lt;a href=&quot;https://flexget.com/Cookbook/Users&quot;&gt;рабочие примеры конфигов&lt;/a&gt; пользователей.&lt;/p&gt;
+
+&lt;p&gt;Установка на Synology простая. Добавляем репозиторий &lt;a href=&quot;https://synocommunity.com/&quot;&gt;SynoCommunity&lt;/a&gt; и устанавливаем пакет Flexget. Осталось создать конфигурационный файл(на самом деле нет).&lt;/p&gt;
+
+&lt;p&gt;Конектимся к NAS по SSH и редактируем &lt;code class=&quot;highlighter-rouge&quot;&gt;/volume1/@appstore/flexget/var/config.yml&lt;/code&gt;. Вот мой с комментариями:&lt;/p&gt;
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;schedules&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# задаем интервал проверки&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;tyt_nfl&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;minutes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;15&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;tyt_nfl&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# указываем форму логина и данные для входа&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://tenyardtracker.com/members.php?action=login&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;user&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;pass&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# переходим в нужную категорию &lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://tenyardtracker.com/browse.php?cat=65&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;title_from&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# говорим использовать название из ссылки&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;regexp&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;accept&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# фильтруем что скачивать&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Packers&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Green Bay Packers!!!!&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# не скачивать&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;raw&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;quality&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# только 720p!&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;720p&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;urlrewrite&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# превращаем ссылку на страницу с торрентом на сам торрент&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;sitename&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;regexp&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;details.php\?id=(?P&amp;lt;id&amp;gt;\d+).*&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;download.php?torrent=\g&amp;lt;id&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;download&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/volume1/downloads/_inc&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# скачиваем торрент файл в эту папку. Из этой папки штатный&lt;/span&gt;
+                                      &lt;span class=&quot;c1&quot;&gt;# Download Station забирает задачи на скачивание.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Сохраняем, перезапускаем в менеджере пакетов Flexget и… Ничего не работает, в логе такая хрень:&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2017-10-04 13:23 CRITICAL formlogin tyt_nfl mechanize required &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;python module&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, please install it.
+2017-10-04 13:23 WARNING task tyt_nfl Aborting task &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;plugin: form&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Ок, установим pip, затем mechanize.&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;wget https://bootstrap.pypa.io/get-pip.py
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;python get-pip.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Это займет минут пять, затем:&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;pip install mechanize
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Но и после этого Flexget ругался на отсутсвие библиотеки mechanize. Решил тем, что скопировал библиотеку в окружение Flexget:&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cp -avr /usr/lib/python2.7/site-packages/mechanize /volume1/@appstore/python/lib/python2.7/site-packages
+cp -avr /usr/lib/python2.7/site-packages/mechanize-0.3.5.dist-info /volume1/@appstore/python/lib/python2.7/site-packages
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Ребутнул NAS целиком и заработало. Наконец-то!&lt;/p&gt;</content><author><name></name></author><category term="Synology" /><category term="Flexget" /><category term="NAS" /><summary type="html">Задача tenyardtracker.com - закрытый торрент-трекер, где выкладывают записи игр по американскому футболу. Что бы поддерживать нормальный рейтинг, нужно как можно раньше присоединяться к раздаче. Но это сложно, разница во времени между нами и США большая, и я в это время как правило сплю. Добавляем к этому нерабочий RSS у трекера и для скачивания нужна авторизация.</summary></entry><entry><title type="html">Почему Ghost?</title><link href="http://0.0.0.0:4000/pochiemu-ghost/" rel="alternate" type="text/html" title="Почему Ghost?" /><published>2017-06-26T00:00:00+03:00</published><updated>2017-06-26T00:00:00+03:00</updated><id>http://0.0.0.0:4000/pochiemu-ghost</id><content type="html" xml:base="http://0.0.0.0:4000/pochiemu-ghost/">&lt;p class=&quot;message&quot;&gt;&lt;strong&gt;Важно&lt;/strong&gt;: Уже не актуально, я отказался от Ghost в пользу Jekyll и доволен как удав. Ниже расскажу почему.&lt;/p&gt;
+
+&lt;p&gt;WordPress с каждой новой версией превращается в такого монстра, что не удивлюсь, если к пятой версии он потребует выделенный сервер. Разобраться что в нём происходит уже практически невозможно.
+Ну а главное - невероятные тормоза визуального редактора. Моё терпение лопнуло и я стал искать альтернативы.
+Альтернатив оказалось много, я бы даже сказал тысячи. Требования были простые:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;простота написания постов, никаких визуальных редакторов&lt;/li&gt;
+  &lt;li&gt;поддержка html и/или &lt;a href=&quot;http://ru.wikipedia.org/wiki/Markdown&quot;&gt;markdown&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;простой дизайн без всяких боковых панелей - фокус только на тексте&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Перепробовав несколько десятков, в том числе и платных, остановился на нескольких вариантах. Среди них были &lt;a href=&quot;http://blogengine.ru/&quot;&gt;Эгея&lt;/a&gt;, &lt;a href=&quot;https://svbtle.com/&quot;&gt;svbtle&lt;/a&gt;, &lt;a href=&quot;https://ghost.org&quot;&gt;Ghost&lt;/a&gt; и еще несколько. svbtle упал на несколько часов прямо во время теста, что по итогам недельного тестирования привело к двум вариантам. Эгея или Ghost.&lt;/p&gt;
+
+&lt;p&gt;Как вы уже поняли, Эгея проиграла. Офигенный движок, но закрытый исходный код его убивает. Уверен, что если Бирман откроет код, движок взорвет не только рунет, но и остальную часть интернета. Увы, мы этого не дождемся :(&lt;/p&gt;
+
+&lt;p&gt;Ghost не идеальный, он написан на js и требует node.js, так что на виртуальный хостинг его не поставишь. Наверно, это единственный его минус. Правда, дроплет от &lt;a href=&quot;https://www.digitalocean.com/?refcode=4b7a4c928ba4&quot;&gt;DigitalOcean&lt;/a&gt; превращает этот минус в огромный плюс - за 5$ в месяц мы получаем 512mb RAM, 20gb SSD и 1tb трафика. Еще печалит отсутствие поиска и комплекте, но, вроде как, это в &lt;a href=&quot;https://trello.com/b/EceUgtCL/ghost-roadmap&quot;&gt;планах&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Апдейт&lt;/strong&gt;: Ghost прекрасен тогда, когда работает. Пару раз он падал после обновления какого-то софта на сервере и единственным способом поднять было восстановление сервера из снапшота. Разобраться почему он не стартует невозможно, если ты не гуру node.js. Каждая новая версия требовала разные версии node.js и я даже умудрился упереться в ограничения по памяти на сервере. В общем, после очередного падения во время обновления я решил забыть ghost как страшный сон.&lt;/p&gt;
+
+&lt;p&gt;Альтернатива нашлась быстро - генератор статических сайтов Jekyll. Но о нем я расскажу подробнее в отдельном посте.&lt;/p&gt;</content><author><name></name></author><category term="ghost" /><category term="jekyll" /><summary type="html">Важно: Уже не актуально, я отказался от Ghost в пользу Jekyll и доволен как удав. Ниже расскажу почему. WordPress с каждой новой версией превращается в такого монстра, что не удивлюсь, если к пятой версии он потребует выделенный сервер. Разобраться что в нём происходит уже практически невозможно. Ну а главное - невероятные тормоза визуального редактора. Моё терпение лопнуло и я стал искать альтернативы. Альтернатив оказалось много, я бы даже сказал тысячи. Требования были простые: простота написания постов, никаких визуальных редакторов поддержка html и/или markdown простой дизайн без всяких боковых панелей - фокус только на тексте Перепробовав несколько десятков, в том числе и платных, остановился на нескольких вариантах. Среди них были Эгея, svbtle, Ghost и еще несколько. svbtle упал на несколько часов прямо во время теста, что по итогам недельного тестирования привело к двум вариантам. Эгея или Ghost. Как вы уже поняли, Эгея проиграла. Офигенный движок, но закрытый исходный код его убивает. Уверен, что если Бирман откроет код, движок взорвет не только рунет, но и остальную часть интернета. Увы, мы этого не дождемся :( Ghost не идеальный, он написан на js и требует node.js, так что на виртуальный хостинг его не поставишь. Наверно, это единственный его минус. Правда, дроплет от DigitalOcean превращает этот минус в огромный плюс - за 5$ в месяц мы получаем 512mb RAM, 20gb SSD и 1tb трафика. Еще печалит отсутствие поиска и комплекте, но, вроде как, это в планах Апдейт: Ghost прекрасен тогда, когда работает. Пару раз он падал после обновления какого-то софта на сервере и единственным способом поднять было восстановление сервера из снапшота. Разобраться почему он не стартует невозможно, если ты не гуру node.js. Каждая новая версия требовала разные версии node.js и я даже умудрился упереться в ограничения по памяти на сервере. В общем, после очередного падения во время обновления я решил забыть ghost как страшный сон. Альтернатива нашлась быстро - генератор статических сайтов Jekyll. Но о нем я расскажу подробнее в отдельном посте.</summary></entry><entry><title type="html">gem install выдает ошибку SSL сертификата</title><link href="http://0.0.0.0:4000/ruby-gems-install-ssl_connect-error/" rel="alternate" type="text/html" title="gem install выдает ошибку SSL сертификата" /><published>2016-11-26T00:00:00+03:00</published><updated>2016-11-26T00:00:00+03:00</updated><id>http://0.0.0.0:4000/ruby-gems-install-ssl_connect-error</id><content type="html" xml:base="http://0.0.0.0:4000/ruby-gems-install-ssl_connect-error/">&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C:&lt;span class=&quot;se&quot;&gt;\W&lt;/span&gt;indows&lt;span class=&quot;se&quot;&gt;\s&lt;/span&gt;ystem32&amp;gt;gem install jekyll 
+ERROR:  Could not find a valid gem &lt;span class=&quot;s1&quot;&gt;'jekyll'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&amp;gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, here is why:
+        Unable to download data from https://rubygems.org/ - SSL_connect &lt;span class=&quot;nv&quot;&gt;returned&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1 &lt;span class=&quot;nv&quot;&gt;errno&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0 &lt;span class=&quot;nv&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;SSLv3 &lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;server certificate B: certificate verify failed &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;https://api.rubygems.org/specs.4.8.gz&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Ошибка возникает при новой установке Ruby на windows с помощью Rubyinstaller.&lt;/p&gt;
+
+&lt;p&gt;Способ решения достаточно прост, последовательно выполняем команды:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem sources --remove https://rubygems.org/
+gem sources --add http://rubygems.org
+gem update --system
+gem sources --remove http://rubygems.org
+gem sources --add https://rubygems.org
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Обновится rubygems-update и всё заработает.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><summary type="html">C:\Windows\system32&amp;gt;gem install jekyll ERROR: Could not find a valid gem 'jekyll' (&amp;gt;= 0), here is why: Unable to download data from https://rubygems.org/ - SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed (https://api.rubygems.org/specs.4.8.gz) Ошибка возникает при новой установке Ruby на windows с помощью Rubyinstaller. Способ решения достаточно прост, последовательно выполняем команды: gem sources --remove https://rubygems.org/ gem sources --add http://rubygems.org gem update --system gem sources --remove http://rubygems.org gem sources --add https://rubygems.org Обновится rubygems-update и всё заработает.</summary></entry><entry><title type="html">Лучшие позы для фотосъёмки девушек</title><link href="http://0.0.0.0:4000/luchshiie-pozy-dlia-fotosiomki-devushek/" rel="alternate" type="text/html" title="Лучшие позы для фотосъёмки девушек" /><published>2016-07-15T00:00:00+03:00</published><updated>2016-07-15T00:00:00+03:00</updated><id>http://0.0.0.0:4000/luchshiie-pozy-dlia-fotosiomki-devushek</id><content type="html" xml:base="http://0.0.0.0:4000/luchshiie-pozy-dlia-fotosiomki-devushek/">&lt;p&gt;Продолжая тему лучших поз и разбора заметок в Evernote - лучшие позы для фотографирования девушек.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/photo/posing-guide-photographing-women-01.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;!--more--&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-02.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-03.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-04.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-05.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-06.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-07.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-08.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-12.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-13.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-14.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-15.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-16.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-17.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-18.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-19.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-20.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-21.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-091.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-101.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-guide-photographing-women-111.jpg&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models01.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models02.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models03.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models04.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models05.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models06.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models07.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models08.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models09.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models10.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models11.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models12.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models13.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models14.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models15.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models16.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models17.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models18.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models19.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models20.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-photographing-female-models21.png&quot; alt=&quot;Лучшие позы для фотосъёмки девушек&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="photo" /><summary type="html">Продолжая тему лучших поз и разбора заметок в Evernote - лучшие позы для фотографирования девушек.</summary></entry><entry><title type="html">Лучшие позы для съемки детей</title><link href="http://0.0.0.0:4000/luchshie-pozy-dlia-siemki-detei/" rel="alternate" type="text/html" title="Лучшие позы для съемки детей" /><published>2016-07-15T00:00:00+03:00</published><updated>2016-07-15T00:00:00+03:00</updated><id>http://0.0.0.0:4000/luchshie-pozy-dlia-siemki-detei</id><content type="html" xml:base="http://0.0.0.0:4000/luchshie-pozy-dlia-siemki-detei/">&lt;p&gt;В очередной итерации разбора входящих заметок в Evernote обнаружил полезную заметку. Для тех у кого есть фотоаппарат и ребёнок - будет полезно.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/photo/posing-children_01.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;!--more--&gt;
+&lt;img src=&quot;/images/photo/posing-children_02.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_03.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_04.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_05.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_06.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_07.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_08.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_09.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_10.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_11.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_12.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_13.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_14.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_15.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_16.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_17.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_18.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_19.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_20.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;
+&lt;img src=&quot;/images/photo/posing-children_21.png&quot; alt=&quot;Лучшие позы для съемки детей&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="photo" /><summary type="html">В очередной итерации разбора входящих заметок в Evernote обнаружил полезную заметку. Для тех у кого есть фотоаппарат и ребёнок - будет полезно.</summary></entry><entry><title type="html">Настройка скорости воспроизведения в MPC-HC</title><link href="http://0.0.0.0:4000/mpc-hc-play-speed/" rel="alternate" type="text/html" title="Настройка скорости воспроизведения в MPC-HC" /><published>2016-03-25T00:00:00+03:00</published><updated>2016-03-25T00:00:00+03:00</updated><id>http://0.0.0.0:4000/mpc-hc-play-speed</id><content type="html" xml:base="http://0.0.0.0:4000/mpc-hc-play-speed/">&lt;p&gt;Media Player Classic Home Cinema aka MPC-HC, лучший видеоплеер под Windows. Простой, быстрый, функциональный.&lt;/p&gt;
+
+&lt;p&gt;Функциональный настолько, что я сходу не нашел где у него меняется  шаг изменения скорости воспроизведения. Пришлось гуглить :)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2016-03-25_214653.png&quot; alt=&quot;Media Player Classic Home Cinema&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;По умолчанию шаг скорости имеет значение auto, что дает нам 1x, 2x и 4x. Если поставить, например, 10, то получится так: 1x, 1.1x, 1.2x, 1.3x и т.д.&lt;/p&gt;</content><author><name></name></author><category term="howto" /><category term="mpchc" /><summary type="html">Media Player Classic Home Cinema aka MPC-HC, лучший видеоплеер под Windows. Простой, быстрый, функциональный. Функциональный настолько, что я сходу не нашел где у него меняется шаг изменения скорости воспроизведения. Пришлось гуглить :) По умолчанию шаг скорости имеет значение auto, что дает нам 1x, 2x и 4x. Если поставить, например, 10, то получится так: 1x, 1.1x, 1.2x, 1.3x и т.д.</summary></entry><entry><title type="html">Sublime Text 3 настройка русского языка</title><link href="http://0.0.0.0:4000/sublime-text-3-cyrillic/" rel="alternate" type="text/html" title="Sublime Text 3 настройка русского языка" /><published>2016-01-11T00:00:00+03:00</published><updated>2016-01-11T00:00:00+03:00</updated><id>http://0.0.0.0:4000/sublime-text-3-cyrillic</id><content type="html" xml:base="http://0.0.0.0:4000/sublime-text-3-cyrillic/">&lt;p&gt;Sublime Text очень крутой редактор кода, но, к сожалению, умирающий. Обновлений практически нет, да и разработчик открыто говорит что потерял интерес. Плюс куча альтернатив, в лице всяких разных IDE и Atom, например.&lt;br /&gt;
+Даже не смотря на всё это, Саблаймом народ пользуется, я в том числе.&lt;br /&gt;
+“Из коробки” он не умеет отображать кириллицу, но это легко исправить:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/sublime-settings.png&quot; alt=&quot;Настройка русского языка в Sublime Text 3&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Так как в третьей версии пропала возможность редактировать дефолтные настройки, будем редактировать пользовательские. Открываем Preferences - Settings - User.&lt;br /&gt;
+Вставляем &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;fallback_encoding&quot;: &quot;Cyrillic (Windows 1251)&quot;,&lt;/code&gt;, сохраняем и перезапускаем.&lt;/p&gt;</content><author><name></name></author><category term="howto" /><summary type="html">Sublime Text очень крутой редактор кода, но, к сожалению, умирающий. Обновлений практически нет, да и разработчик открыто говорит что потерял интерес. Плюс куча альтернатив, в лице всяких разных IDE и Atom, например. Даже не смотря на всё это, Саблаймом народ пользуется, я в том числе. “Из коробки” он не умеет отображать кириллицу, но это легко исправить: Так как в третьей версии пропала возможность редактировать дефолтные настройки, будем редактировать пользовательские. Открываем Preferences - Settings - User. Вставляем &quot;fallback_encoding&quot;: &quot;Cyrillic (Windows 1251)&quot;,, сохраняем и перезапускаем.</summary></entry><entry><title type="html">Установка letsencrypt на Ubuntu с nginx</title><link href="http://0.0.0.0:4000/ustanovka-letsencrypt-na-ubuntu-s-nginx/" rel="alternate" type="text/html" title="Установка letsencrypt на Ubuntu с nginx" /><published>2016-01-02T00:00:00+03:00</published><updated>2016-01-02T00:00:00+03:00</updated><id>http://0.0.0.0:4000/ustanovka-letsencrypt-na-ubuntu-s-nginx</id><content type="html" xml:base="http://0.0.0.0:4000/ustanovka-letsencrypt-na-ubuntu-s-nginx/">&lt;p&gt;&lt;img src=&quot;/images/letsencrypt-logo-horizontal.svg&quot; alt=&quot;Let`s Encrypt&quot; title=&quot;Center&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+С появлением Let’s Encrypt не осталось причин не использовать ssl сертификаты для сайтов вообще. Letsencrypt позволяет абсолютно бесплатно получить сертификат для сайта без каких-либо танцев с бубном, как это было, например, со startssl.&lt;/p&gt;
+
+&lt;p&gt;Ну почти. Мне всё-таки пришлось поплясать, так как на самом мелком дроплете DigitalOcean скрипт упирался в объем памяти. Подключив файл подкачки, все прошло как по маслу:&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dd &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/dev/zero &lt;span class=&quot;nv&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/swapfile &lt;span class=&quot;nv&quot;&gt;bs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1024 &lt;span class=&quot;nv&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;524288  
+sudo chmod 600 /swapfile  
+sudo mkswap /swapfile
+sudo swapon /swapfile  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Ах да, вот сама &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04&quot;&gt;инструкция по установке и настройке Let`s Encrypt&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;После установки сертификата потребовалось настроить и Wordpress - в настройках надо поменять адрес сайта с http:// на https://. Самое сложное, это отредактировать все записи и поменять ссылки на картинки, что бы они забирались по https, потому как без этого браузер будет ругаться на небезопасное содержимое.&lt;br /&gt;
+Постов было больше 1000, так что о ручной замене и речи быть не могло. После 5 минут гугления найден гениальный инструмент - &lt;a href=&quot;https://github.com/interconnectit/Search-Replace-DB&quot;&gt;Search Replace DB&lt;/a&gt;.&lt;br /&gt;
+3 секунды и больше 1000 постов отредактировано :)&lt;/p&gt;</content><author><name></name></author><category term="howto" /><summary type="html">С появлением Let’s Encrypt не осталось причин не использовать ssl сертификаты для сайтов вообще. Letsencrypt позволяет абсолютно бесплатно получить сертификат для сайта без каких-либо танцев с бубном, как это было, например, со startssl. Ну почти. Мне всё-таки пришлось поплясать, так как на самом мелком дроплете DigitalOcean скрипт упирался в объем памяти. Подключив файл подкачки, все прошло как по маслу: sudo dd if=/dev/zero of=/swapfile bs=1024 count=524288 sudo chmod 600 /swapfile sudo mkswap /swapfile sudo swapon /swapfile Ах да, вот сама инструкция по установке и настройке Let`s Encrypt. После установки сертификата потребовалось настроить и Wordpress - в настройках надо поменять адрес сайта с http:// на https://. Самое сложное, это отредактировать все записи и поменять ссылки на картинки, что бы они забирались по https, потому как без этого браузер будет ругаться на небезопасное содержимое. Постов было больше 1000, так что о ручной замене и речи быть не могло. После 5 минут гугления найден гениальный инструмент - Search Replace DB. 3 секунды и больше 1000 постов отредактировано :)</summary></entry><entry><title type="html">Удаляем аудиодорожку из mp4 файлов</title><link href="http://0.0.0.0:4000/delete-audio-from-mp4/" rel="alternate" type="text/html" title="Удаляем аудиодорожку из mp4 файлов" /><published>2015-11-12T00:00:00+03:00</published><updated>2015-11-12T00:00:00+03:00</updated><id>http://0.0.0.0:4000/delete-audio-from-mp4</id><content type="html" xml:base="http://0.0.0.0:4000/delete-audio-from-mp4/">&lt;p&gt;Возникла достаточно нестандартная задача - удалить звук из нескольких сотен mp4 файлов.
+В одном файле это можно сделать тысячью способов, есть куча программ, которые могут распотрошить mp4 контейнер, но что делать если файлов тысячи?&lt;/p&gt;
+
+&lt;p&gt;На помощь приходит консольная утилита ffmpeg, как это не странно.&lt;br /&gt;
+Что бы удалить все аудиодорожки, надо использовать команду &lt;code class=&quot;highlighter-rouge&quot;&gt;-an&lt;/code&gt;. Как-то так:&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ffmpeg -i input.mp4 -vcodec copy -an output.mp4&lt;/code&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;-i&lt;/code&gt; - указывает исходный файл&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;-vcodec copy&lt;/code&gt; говорит что не надо трогать видео&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;-an&lt;/code&gt; что аудио не нужно&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;output.mp4&lt;/code&gt; - итоговый файл.&lt;/p&gt;
+
+&lt;p&gt;Отлично, но надо как-то подставить 1322 файла (147Gb)! Поможет PowerShell:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$FROMDIR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'H:\2013\'&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$TODIR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'H:\2013_new'&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$FFMPEG&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'H:\ffmpeg\bin\ffmpeg.exe'&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$files&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Get-ChildItem &lt;span class=&quot;nv&quot;&gt;$FROMDIR&lt;/span&gt; -Filter  &lt;span class=&quot;s1&quot;&gt;'*.mp4'&lt;/span&gt;
+
+foreach &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nv&quot;&gt;$output&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$TODIR&lt;/span&gt; + &lt;span class=&quot;s1&quot;&gt;'\'&lt;/span&gt; + &lt;span class=&quot;nv&quot;&gt;$file&lt;/span&gt;.Name
+
+	&amp;amp; &lt;span class=&quot;nv&quot;&gt;$FFMPEG&lt;/span&gt; -i &lt;span class=&quot;nv&quot;&gt;$FROMDIR$file&lt;/span&gt; -vcodec copy -an &lt;span class=&quot;nv&quot;&gt;$output&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Запускаем и ждем :)&lt;/p&gt;</content><author><name></name></author><category term="howto" /><summary type="html">Возникла достаточно нестандартная задача - удалить звук из нескольких сотен mp4 файлов. В одном файле это можно сделать тысячью способов, есть куча программ, которые могут распотрошить mp4 контейнер, но что делать если файлов тысячи? На помощь приходит консольная утилита ffmpeg, как это не странно. Что бы удалить все аудиодорожки, надо использовать команду -an. Как-то так: ffmpeg -i input.mp4 -vcodec copy -an output.mp4 -i - указывает исходный файл -vcodec copy говорит что не надо трогать видео -an что аудио не нужно output.mp4 - итоговый файл. Отлично, но надо как-то подставить 1322 файла (147Gb)! Поможет PowerShell: $FROMDIR = 'H:\2013\' $TODIR = 'H:\2013_new' $FFMPEG = 'H:\ffmpeg\bin\ffmpeg.exe' $files = Get-ChildItem $FROMDIR -Filter '*.mp4' foreach ($file in $files) { $output = $TODIR + '\' + $file.Name &amp;amp; $FFMPEG -i $FROMDIR$file -vcodec copy -an $output } Запускаем и ждем :)</summary></entry></feed>
