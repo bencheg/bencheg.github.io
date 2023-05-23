@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>travel on marand.ru</title>
+    <link>https://marand.ru/tags/travel/</link>
+    <description>Recent content in travel on marand.ru</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>RU-ru</language>
+    <lastBuildDate>Wed, 08 Mar 2023 16:52:19 +0300</lastBuildDate>
+    
+	<atom:link href="https://marand.ru/tags/travel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+    <item>
+      <title>Регистрация COM компоненты 1С Предприятия comcntr.dll (V83.ComConnector)</title>
+      <link>https://marand.ru/registraciya-v83-comconnector/</link>
+      <pubDate>Sat, 11 Mar 2023 16:56:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/registraciya-v83-comconnector/</guid>
+      <description>&lt;p&gt;Для 32-х битных систем&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ps1&#34; data-lang=&#34;ps1&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;regsvr32&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;c:\program files (x86)\1cv8\&amp;lt;версия_1С&amp;gt;\bin\comcntr.dll&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Для 64-х битных систем&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ps1&#34; data-lang=&#34;ps1&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;C:&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Windows&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SysWOW64&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;regsvr32&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;C:\Program Files\1cv8\&amp;lt;версия_1С&amp;gt;\bin\comcntr.dll&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Удаление
+Просто добавляем ключ /u.
+Например:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ps1&#34; data-lang=&#34;ps1&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;C:&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Windows&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SysWOW64&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;regsvr32&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;u&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;C:\Program Files\1cv8\&amp;lt;версия_1С&amp;gt;\bin\comcntr.dll&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>macOS: ошибка подключения exfat диска</title>
+      <link>https://marand.ru/macos-oshibka-podklyucheniya-exfat-diska/</link>
+      <pubDate>Sat, 11 Mar 2023 16:52:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/macos-oshibka-podklyucheniya-exfat-diska/</guid>
+      <description>&lt;p&gt;Внезапно перестал монтироваться внешний жесткий диск &lt;mark&gt;wd my passport&lt;/mark&gt; отформатированный в exfat. Проверил под &lt;mark&gt;windows&lt;/mark&gt; — все ок, а macos не видит и всё.&lt;/p&gt;
+&lt;p&gt;Решение:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pkill -f fsck&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Такое бывает из-за некорректного отключения диска, &lt;strong&gt;fsck&lt;/strong&gt; &lt;mark&gt;(file system consistency check)&lt;/mark&gt; пытается восстановить файловую систему, но так как &lt;mark&gt;exfat&lt;/mark&gt; не поддерживает журналирование, получается проблема :(&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Уменьшаем размер MSDB</title>
+      <link>https://marand.ru/umenshaem-razmer-msdb/</link>
+      <pubDate>Fri, 10 Mar 2023 16:52:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/umenshaem-razmer-msdb/</guid>
+      <description>&lt;p&gt;Размер системной базы msdb стал больше 11 гб, настало время ее почистить.&lt;/p&gt;
+&lt;p&gt;Для начала, посмотрим какая таблица сколько места занимает:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;USE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MSDB&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;as&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;TableName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Min&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;create_date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;as&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;CreateDate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;as&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FileGroupName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SUM&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;total_pages&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1024&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;as&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SizeMB&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tables&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;as&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;inner&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;join&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;partitions&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;as&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;object_id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;object_id&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;inner&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;join&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;allocation_units&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;as&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;partition_id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;container_id&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;inner&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;join&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data_spaces&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;as&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ds&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data_space_id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data_space_id&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;group&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;by&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;order&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;by&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sizemb&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;desc&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;В моем случае это была таблица sysmaintplan_logdetail. Около 10 гб.&lt;/p&gt;
+&lt;p&gt;Чистим:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;USE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MSDB&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ALTER&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;TABLE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dbo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sysmaintplan_log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;DROP&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;CONSTRAINT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FK_sysmaintplan_log_subplan_id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ALTER&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;TABLE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dbo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sysmaintplan_logdetail&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;DROP&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;CONSTRAINT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FK_sysmaintplan_log_detail_task_id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;truncate&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;table&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;msdb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dbo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sysmaintplan_logdetail&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;truncate&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;table&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;msdb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dbo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sysmaintplan_log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ALTER&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;TABLE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dbo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sysmaintplan_log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;WITH&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;CHECK&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ADD&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;CONSTRAINT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FK_sysmaintplan_log_subplan_id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FOREIGN&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;KEY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;subplan_id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;REFERENCES&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dbo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sysmaintplan_subplans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;subplan_id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ALTER&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;TABLE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dbo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sysmaintplan_logdetail&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;WITH&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;CHECK&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ADD&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;CONSTRAINT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FK_sysmaintplan_log_detail_task_id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FOREIGN&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;KEY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;task_detail_id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;REFERENCES&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dbo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sysmaintplan_log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;task_detail_id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ON&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;DELETE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;CASCADE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;После этого обязательно сжимаем базу:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;DBCC&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SHRINKFILE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MSDBData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;512&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Проверяем результат:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1024&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;space_used&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FILEPROPERTY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;SpaceUsed&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1024&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;database_files&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;И добавить еще очистку логов джобов и бекапов:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;DECLARE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DateBefore&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DATETIME&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SET&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DateBefore&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DATEADD&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;DAY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GETDATE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;EXEC&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;msdb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dbo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sp_purge_jobhistory&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;oldest_date&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DateBefore&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;DECLARE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DateBefore&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DATETIME&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SET&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DateBefore&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DATEADD&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;DAY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;60&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GETDATE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;EXEC&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;msdb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dbo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sp_delete_backuphistory&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;oldest_date&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DateBefore&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>🇳🇴 Норвегия. Полезные ссылки</title>
+      <link>https://marand.ru/norway-links/</link>
+      <pubDate>Wed, 08 Mar 2023 16:52:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/norway-links/</guid>
+      <description>&lt;p&gt;В общей сложности, по Норвегии я проехал больше 20 тысяч километров. С севера на юг, с юга на север. При подготовке к трем моим поездкам в страну фьордов и водопадов собрал небольшую коллекцию ссылок. Уверен, они будут полезны тем, кто собирается посетить эту красивейшую, но дорогую страну.&lt;/p&gt;
+&lt;p&gt;Я разбил ссылки по категориям, пост периодически обновляю.&lt;/p&gt;
+&lt;h1 id=&#34;карты&#34;&gt;Карты&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;http://kart.finn.no/&#34;&gt;FINN kart&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://www.1881.no/&#34;&gt;1881&lt;/a&gt; - потрясающая детализация спутниковых снимков&lt;br&gt;
+&lt;a href=&#34;http://ut.no/kart&#34;&gt;Топо карты Норвегии с пешими маршрутами&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://kart.gulesider.no/&#34;&gt;Еще карты&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://atlas.no/&#34;&gt;Еще одни&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;паромы-транспорт&#34;&gt;Паромы, транспорт&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.thn.no/english/default.aspx&#34;&gt;Torghatten Nord AS&lt;/a&gt; - маршруты, расписание и цены на некоторые паромы&lt;br&gt;
+&lt;a href=&#34;http://www.kringom.no/ferjer.343889.no.html&#34;&gt;Паромы&lt;/a&gt; - еще паромы&lt;br&gt;
+&lt;a href=&#34;http://www.fjord1.no/eng/ferry&#34;&gt;Паромы&lt;/a&gt;  - еще одна паромная контора&lt;br&gt;
+&lt;a href=&#34;https://www.norled.no/en/ferry/maps-and-schedules/&#34;&gt;И еще паромы&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://www.senjafergene.no/en/home/&#34;&gt;Паром Анденес - Сенья (Gryllefjord)&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://www.autopass.no/en/autopass&#34;&gt;Информация о платных дорогах&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;отчеты-информация-о-маршрутах&#34;&gt;Отчеты, информация о маршрутах&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.lommekjent.no/&#34;&gt;Маршруты для хайкинга&lt;/a&gt;  - очень много маршрутов. Правда, только на норвежском.&lt;br&gt;
+Еще &lt;a href=&#34;https://www.nasjonaleturistveger.no/en&#34;&gt;маршруты&lt;/a&gt;, с описанием, с треками.&lt;br&gt;
+&lt;a href=&#34;http://www.68north.com/&#34;&gt;Блог о Лофотенских островах&lt;/a&gt;  - ведет потрясающий фотограф Cody Duncan&lt;br&gt;
+&lt;a href=&#34;http://www.visitnorway.com/&#34;&gt;VisitNorway.com&lt;/a&gt;  - русскоязычный сайт, на котором собрано куча полезной информации о Норвегии&lt;br&gt;
+&lt;a href=&#34;http://www.westcoastpeaks.com/alltops.html&#34;&gt;Для любителей гор&lt;/a&gt; - информация почти обо всех возвышенностях Норвегии с маршрутами, фотографиями&lt;br&gt;
+&lt;a href=&#34;http://www.haramfjell.com/Location/Location_main.htm&#34;&gt;Еще горы&lt;/a&gt; - здесь, правда, не только по Норвегии&lt;br&gt;
+&lt;a href=&#34;http://www.vinmonopolet.no/is-bin/INTERSHOP.enfinity/WFS/store-vmp-Site/no_NO/-/NOK/FindStore-Start&#34;&gt;Vinmonopolet&lt;/a&gt; адреса магазинов vinmonopolet, где можно купить алкоголь&lt;br&gt;
+&lt;a href=&#34;http://puffinsafari.no/en/&#34;&gt;Сафари на паффинов&lt;/a&gt; - очень прикольные птички, у нас больше известны как морские попугаи&lt;br&gt;
+&lt;a href=&#34;http://www.whalesafari.no/&#34;&gt;Китовое сафари&lt;/a&gt; - дорого, но посмотреть на китов того стоит&lt;br&gt;
+&lt;a href=&#34;http://matt.tracz.org/2009/norway/index.html&#34;&gt;Треки&lt;/a&gt; по Лофотенским островам&lt;br&gt;
+&lt;a href=&#34;http://forum.awd.ru/viewtopic.php?f=1089&amp;amp;t=97283&#34;&gt;Прогулки по Норвегии&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://www.marshruty.ru/Travels/Travel.aspx?TravelID=4f233f11-fec6-416d-8f5c-bbf8797771fb&#34;&gt;Автопутешествие в Норвегию на ОКЕ&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://norseski.livejournal.com/874.html&#34;&gt;Норвегия. Полезная информация для тех, кто за рулем&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://www.tanush.org.ru/norway/index.html&#34;&gt;Наше скандинавское путешествие&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;погода-полярное-сияние&#34;&gt;Погода, полярное сияние&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.storm.no/&#34;&gt;Погода и прогноз интенсивности полярного сияния&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://www.senorge.no/aboutSeNorge.html&#34;&gt;seNorge&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://www.yr.no/&#34;&gt;YR.NO&lt;/a&gt; - очень точные прогнозы&lt;br&gt;
+&lt;a href=&#34;http://www.gi.alaska.edu/AuroraForecast/Europe&#34;&gt;Прогноз полярного сияния&lt;/a&gt; от Геофизического института на Аляске&lt;br&gt;
+&lt;a href=&#34;http://www.polarlightcenter.com/allskycam/&#34;&gt;Онлайн камера&lt;/a&gt;, показывающая текущее состояние неба&lt;br&gt;
+&lt;a href=&#34;http://www.swpc.noaa.gov/&#34;&gt;Центр предсказания космической погоды&lt;/a&gt;, в особенности эта &lt;a href=&#34;http://services.swpc.noaa.gov/images/aurora-forecast-northern-hemisphere.jpg&#34;&gt;картинка&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://www.auroraskystation.com/&#34;&gt;Aurora Sky Station&lt;/a&gt; находится в Швеции, но там есть прогноз и для Норвегии&lt;br&gt;
+&lt;a href=&#34;https://itunes.apple.com/gb/app/aurora-forecast./id539875792?mt=8&#34;&gt;Софт для iOS&lt;/a&gt;  - прогноз на телефоне&lt;/p&gt;
+&lt;h1 id=&#34;кемпинги-жилье&#34;&gt;Кемпинги, жилье&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.campingguiden.no/english/index.htm&#34;&gt;Каталог кемпингов&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://www.nafcamp.no/&#34;&gt;Еще один каталог&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://www.kabelvag.com/en/&#34;&gt;Кемпинг на Лофотенах&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Как установить приложение из Microsoft Store без регистрации</title>
+      <link>https://marand.ru/install-from-microsoft-store-no-reg/</link>
+      <pubDate>Sun, 26 Feb 2023 16:52:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/install-from-microsoft-store-no-reg/</guid>
+      <description>&lt;p&gt;&lt;mark&gt;Microsoft&lt;/mark&gt;  со своим магазином приложений только усложняет жизнь простым людям, которым не нужна учетка для пользования своим компьютером. Например, что бы скачать плагин поддержки &lt;strong&gt;HEIF/HEIC&lt;/strong&gt; нужно регистрироваться/логинится с учетной записью microsoft.&lt;/p&gt;
+&lt;p&gt;Но есть способ проще.&lt;/p&gt;
+&lt;p&gt;Открываем &lt;a href=&#34;https://github.com/MattiasC85/Scripts/blob/master/OSD/Download-AppxFromStore.ps1&#34;&gt;скрипт&lt;/a&gt;, нажимаем кнопку &lt;strong&gt;RAW&lt;/strong&gt;, затем &lt;strong&gt;Файл - Сохранить как&lt;/strong&gt; (или &lt;kbd&gt;ctrl&lt;/kbd&gt; + &lt;kbd&gt;s&lt;/kbd&gt;). Запускаем, вставляем ссылку на приложение в Microsoft Store и начнется скачивание приложения.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://marand.ru/images/microsoft_store_link.png&#34; alt=&#34;&#34; title=&#34;Вставляем ссылку&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Да, вид ссылки должен быть такой:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;https://www.microsoft.com/store/apps/9pmmsr1cgpwg
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;https://www.microsoft.com/en-us/p/heif-image-extensions/9pmmsr1cgpwg
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;https://www.microsoft.com/ru-ru/p/heif-image-extensions/9pmmsr1cgpwg&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Скрипт скачивает все возможные варианты поставки:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://marand.ru/images/microsoft_store_dl.png&#34; alt=&#34;&#34; title=&#34;Идет скачивание&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Выбираем нужную платформу и устанавливаем. Если не знаете какая, пробуйте x64, с расширением &lt;mark&gt;appx&lt;/mark&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://marand.ru/images/downloaded.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Если Windows вдруг спрашивает чем открыть .appx, то проще будет установить через PowerShell:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Add-AppxPackage -Path &lt;span class=&#34;s2&#34;&gt;&amp;#34;C:\Path\to\File.Appx&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Edgerouter: Установка Wireguard</title>
+      <link>https://marand.ru/install-wireguard-edgerouter/</link>
+      <pubDate>Thu, 01 Dec 2022 16:52:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/install-wireguard-edgerouter/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://marand.ru/images/wireguard.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Wireguard отличная альтернатива &lt;mark&gt;openvpn&lt;/mark&gt;. А по части настройки так вообще на три головы впереди. Я использую wg для организации туннеля в домашнюю сеть.&lt;/p&gt;
+&lt;h1 id=&#34;ставим-wireguard&#34;&gt;Ставим wireguard&lt;/h1&gt;
+&lt;p&gt;Идем на &lt;a href=&#34;https://github.com/WireGuard/wireguard-vyatta-ubnt/releases&#34;&gt;github&lt;/a&gt; и копируем ссылку на deb пакет в зависимости от прошивки и модели роутера. В моем случае это &lt;strong&gt;e50-v2-v1.0.20211208-v1.0.20210914.deb&lt;/strong&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;user@ubnt:~$ curl -OL link-to-deb
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;user@ubnt:~$ sudo dpkg -i e50-v2-v1.0.20211208-v1.0.20210914.deb&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Генерируем ключи:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wg genkey &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; tee /config/auth/wg.key &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; wg pubkey &amp;gt;  wg.public&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+Приватный ключ будет лежать в &lt;code&gt;/config/auth/wg.key&lt;/code&gt;, публичный в текущей директории. Потом публичный ключ можно посмотреть командой &lt;code&gt;sudo wg show&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;настраиваем-интерфейс-на-роутере&#34;&gt;Настраиваем интерфейс на роутере:&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;configure
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; interfaces wireguard wg0 address 192.168.5.1/24
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; interfaces wireguard wg0 listen-port &lt;span class=&#34;m&#34;&gt;51820&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; interfaces wireguard wg0 route-allowed-ips &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; interfaces wireguard wg0 private-key /config/auth/wg.key
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;commit
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;save&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id=&#34;добавляем-peer&#34;&gt;Добавляем peer&lt;/h1&gt;
+&lt;p&gt;В приложении Wireguard что на ios, что в macos, что в windows при добавлении нового туннеля ключи генерируются автоматом, нужно только скопировать:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://marand.ru/images/wg_windows.png#center&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;https://marand.ru/images/macos_wireguard.png#center&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;https://marand.ru/images/wg_ios.png#center&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Прописываем &lt;strong&gt;публичный ключ роутера&lt;/strong&gt;, его &lt;strong&gt;ip&lt;/strong&gt; и &lt;strong&gt;порт&lt;/strong&gt;. Обязательно указываем ip адрес устройства, на котором настраиваем - он должен быть уникальным. Например, на телефоне 192.168.5.2, на макбуке 192.168.5.3 и т.д.&lt;br&gt;
+Пример конфига для macos и windows:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Interface&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;PrivateKey&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; приватный ключ пира
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Address&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; 192.168.5.3/32
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Peer&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;PublicKey&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; публичный ключ роутера
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;AllowedIPs&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; 192.168.5.0/24, 192.168.1.0/24 // указываем сети, в которые нужен доступ
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Endpoint&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; ip:51820 //внешний адрес роутера
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;PersistentKeepalive&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;h1 id=&#34;добавляем-peer-в-конфиг-роутера&#34;&gt;Добавляем peer в конфиг роутера&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;configure
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; interfaces wireguard wg0 peer публичный_ключ_пира1 allowed-ips 192.168.5.2/32
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; interfaces wireguard wg0 peer публичный_ключ_пира2 allowed-ips 192.168.5.3/32
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;commit
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;save&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id=&#34;настраиваем-файрвол&#34;&gt;Настраиваем файрвол&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;configure
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; firewall name WAN_LOCAL rule &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt; action accept
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; firewall name WAN_LOCAL rule &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt; protocol udp
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; firewall name WAN_LOCAL rule &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt; description &lt;span class=&#34;s1&#34;&gt;&amp;#39;WireGuard&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; firewall name WAN_LOCAL rule &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt; destination port &lt;span class=&#34;m&#34;&gt;51820&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;commit
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;save&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Все, vpn настроен, доступ в домашнюю сеть есть как с телефона, так и с ноутбука.&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>AdGuard Home - блокируем рекламу во всем доме.</title>
+      <link>https://marand.ru/adguard-home/</link>
+      <pubDate>Wed, 26 Oct 2022 16:52:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/adguard-home/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://marand.ru/images/adguard.png&#34; alt=&#34;adguard logo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Adguard Home - бесплатное ПО с открытым исходным кодом для блокировки рекламы, трекинга, фишинга и прочей нечисти на всех устройствах в сети: планшеты, телефоны, приставки, телевизоры и прочие роботы-пылесосы.
+Так что китайцы не узнают от вашего робота-пылесоса сколько у вас комнат.&lt;/p&gt;
+&lt;h1 id=&#34;что-нужно&#34;&gt;Что нужно.&lt;/h1&gt;
+&lt;p&gt;Что-то, куда можно установить AdGuard, у меня это Raspberry Pi 4. Но это может быть и роутер, и сетевой накопитель Synology/QNAP. Да вообще всё что угодно, на самом деле. Ну, кроме робота-пылесоса.&lt;/p&gt;
+&lt;h1 id=&#34;установка&#34;&gt;Установка&lt;/h1&gt;
+&lt;p&gt;Установка очень &lt;a href=&#34;https://github.com/AdguardTeam/AdGuardHome/wiki/Raspberry-Pi&#34;&gt;простая&lt;/a&gt;, как инструкция из Икеи. Заходим по ssh и вводим:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget &lt;span class=&#34;s1&#34;&gt;&amp;#39;https://static.adguard.com/adguardhome/release/AdGuardHome_linux_armv6.tar.gz&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tar -f AdGuardHome_linux_armv6.tar.gz -x -v&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+Правда, стоит выбрать пакет под свою &lt;a href=&#34;https://github.com/AdguardTeam/AdGuardHome/wiki/Platforms#releases&#34;&gt;архитектуру&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Затем:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ./AdGuardHome/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo ./AdGuardHome -s install&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Всё, установили. Переходим по http://192.168..:3000/ и за 5 простых шагов настраиваем.  192.168.. тут - ip устройства, куда установили AdGuard.&lt;/p&gt;
+&lt;h1 id=&#34;что-касается-фильтров-и-настройки-dns&#34;&gt;Что касается фильтров и настройки DNS&lt;/h1&gt;
+&lt;p&gt;Я выбрал следующие Upstream DNS-серверы:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tls://security.cloudflare-dns.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;https://security.cloudflare-dns.com/dns-query&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+И выбрал пункт &amp;ldquo;Параллельные DNS запросы&amp;rdquo;, для ускорения обработки запросов. Что бы DNS запросы шифровались, нужно перейти в &amp;ldquo;Настройки&amp;rdquo; - &amp;ldquo;Настройки шифрования&amp;rdquo; и поставить галку &amp;ldquo;Включить шифрование&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Перепробовав несколько фильтров остановился на этих:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;https://adaway.org/hosts.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;https://v.firebog.net/hosts/Easyprivacy.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_1_Russian/filter.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_11_Mobile/filter.txt&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id=&#34;устанавливаем-сертификат-для-корректной-работы-шифрования&#34;&gt;Устанавливаем сертификат для корректной работы шифрования&lt;/h1&gt;
+&lt;p&gt;Ставить будем бесплатный &lt;mark&gt;Let`s Encrypt&lt;/mark&gt;. Для подтверждения домена не хочется открывать веб-интерфейс наружу и заморачиваться с правилами файрвола, поэтому воспользуюсь DNS подтверждением от &lt;mark&gt;CloudFlare&lt;/mark&gt;.&lt;/p&gt;
+&lt;p&gt;Делегируем домен на CloudFlare. Меняем ns на те, что предлагает CF и ждем обновления зоны.&lt;/p&gt;
+&lt;p&gt;Устанавливаем необходимые пакеты:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install certbot python3-certbot-dns-cloudflare&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+Создаем файл с авторизационными данными:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir /secrets/ 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;touch /secrets/cloudflare.ini
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nano /secrets/cloudflare.ini &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+Вставляем в файл token для доступа к CF. Нам пойдет токен из шаблона &lt;mark&gt;&amp;ldquo;Edit zone DNS&amp;rdquo;&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;dns_cloudflare_api_token&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; token&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+Меняем права:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo chmod &lt;span class=&#34;m&#34;&gt;0700&lt;/span&gt; /secrets/&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo chmod &lt;span class=&#34;m&#34;&gt;0400&lt;/span&gt; /secrets/cloudflare.ini&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+Отправляем запрос на сертификат:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials /home/pi/secrets/cloudflare.ini -d example.com,*.example.com --preferred-challenges dns-01&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+Не забудьте поменять домен.
+Сертификаты сохранятся в &lt;code&gt;/etc/letsencrypt/live/example.com/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Осталось добавить их в AdGuard. &amp;ldquo;Настройки&amp;rdquo; - &amp;ldquo;Настройки шифрования&amp;rdquo;. И вставляем наши сертификаты.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://marand.ru/images/adguard-letsencrypt.png&#34; alt=&#34;adguard logo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Вот и всё.&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Сброс конфигурации свитчей Cisco</title>
+      <link>https://marand.ru/reset-cisco-switch/</link>
+      <pubDate>Wed, 26 Oct 2022 16:52:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/reset-cisco-switch/</guid>
+      <description>&lt;p&gt;Краткая шпаргалка по сбросу конфигурации свитчей Cisco на ios.  Имеется ввиду hard reset - сброс к заводским настройкам.&lt;/p&gt;
+&lt;p&gt;Если логин/пароль известны, логинимся и вводим:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cisco_bb# write erase
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Erasing the nvram filesystem will remove all files! Continue? &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;confirm&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;y&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;OK&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Erase of nvram: &lt;span class=&#34;nb&#34;&gt;complete&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cisco_bb#
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cisco_bb# reload&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Если доступа к конфигу нет, то включаем свитч с зажатой кнопкой  mode.
+Дальше в консоли появляется что-то такое, после чего отпускаем кнопку:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;The system has been interrupted prior to initializing the
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;flash filesystem.  The following commands will initialize
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;the flash filesystem, and finish loading the operating 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;system software:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    flash_init
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    load_helper
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    boot&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Вводим: &lt;strong&gt;flash_init&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Удаляем файлы конфигурации:&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;switch: del flash:config.text  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;switch: del flash:vlan.dat&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+И командуем загрузку:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;switch: boot&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Chrome - черный экран при открытии сайта Астрал Отчет 5.0</title>
+      <link>https://marand.ru/chrome-black-screen/</link>
+      <pubDate>Tue, 02 Aug 2022 17:06:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/chrome-black-screen/</guid>
+      <description>&lt;p&gt;Столкнулся с забавной проблемой в Chrome - открываешь astral.ru (Астрал Отчет 5.0) и получаешь черный экран.&lt;/p&gt;
+&lt;p&gt;Выход и вход или перезапуск браузера иногда помогает, но лишь в четверти случаев.&lt;/p&gt;
+&lt;p&gt;Решение: &lt;mark&gt;отключить аппаратное ускорение&lt;/mark&gt;.
+В адресную строку вводим:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;chrome://settings/system&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Или&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Настройки - Система&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;И отключаем &lt;mark&gt;аппаратное ускорение&lt;/mark&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Необходимые права для учетной записи MSSQL</title>
+      <link>https://marand.ru/mssql-active-directory-rights/</link>
+      <pubDate>Tue, 02 Aug 2022 17:06:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/mssql-active-directory-rights/</guid>
+      <description>&lt;p&gt;Для того что бы mssql мог писать в сетевую папку, его нужно запускать под отдельной учеткой. Встроенные NT Service\ не могут писать в сетевые папки. Я создаю доменные учетки, но если Active Directory не поднят, то подойдут и обычные локальные.&lt;/p&gt;
+&lt;p&gt;Открываем редактор локальных политик безопасности: Пуск - Выполнить - secpol.msc&lt;/p&gt;
+&lt;p&gt;Параметры безопасности (Security Settings) - Локальные политики (Local Policies) - Назначение прав пользователя (User Rights Assignment).&lt;/p&gt;
+&lt;p&gt;Для корректной работы MS SQL, нужно добавить пользователю следующие права:&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;Log on as a batch job&lt;/mark&gt; (Входить в рамках выполнения пакета команд)&lt;br&gt;
+&lt;mark&gt;Replace a process-level token&lt;/mark&gt; (Заменять маркер безопасности процесса)&lt;br&gt;
+&lt;mark&gt;Bypass traverse checking&lt;/mark&gt; (Проходить сквозь каталоги, на которые этой учетной записи не предоставлены разрешения)&lt;br&gt;
+&lt;mark&gt;Adjust memory quotas for a process&lt;/mark&gt; (Настраивать квоты на использование памяти для процесса)&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Microsoft Office для macos: установка только Word и Excel</title>
+      <link>https://marand.ru/microsoft-office-macos-tolko-word-i-excel/</link>
+      <pubDate>Fri, 17 Dec 2021 16:52:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/microsoft-office-macos-tolko-word-i-excel/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://marand.ru/images/office.png&#34; alt=&#34;microsoft office logo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Наконец-то нашел способ как отдельно поставить &lt;strong&gt;Word&lt;/strong&gt; и &lt;strong&gt;Excel&lt;/strong&gt; из пакета &lt;mark&gt;Microsoft Office&lt;/mark&gt;! Не знаю зачем тратить место на программы, которые никогда не использую.&lt;/p&gt;
+&lt;p&gt;В общем, &lt;a href=&#34;https://docs.microsoft.com/en-us/officeupdates/update-history-office-for-mac&#34;&gt;заходим&lt;/a&gt; и скачиваем отдельные программы.&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Служба Агент сервера 1С:Предприятия 8.3 (x86-64) зависла в состоянии «остановка»</title>
+      <link>https://marand.ru/1c-service-stopping/</link>
+      <pubDate>Thu, 11 Nov 2021 16:52:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/1c-service-stopping/</guid>
+      <description>&lt;p&gt;На самом деле, так можно остановить любую зависшую службу. На примере &lt;mark&gt;1С:Предприятия&lt;/mark&gt;:&lt;/p&gt;
+&lt;p&gt;Выясняем &lt;strong&gt;pid&lt;/strong&gt; процесса:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ps1&#34; data-lang=&#34;ps1&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;sc &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;queryex&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;1C:Enterprise 8.3 Server Agent (x86-64)&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&#34;https://marand.ru/images/sc_query.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Затем:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ps1&#34; data-lang=&#34;ps1&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;taskkill&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pid&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;no&#34;&gt;PID&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;[PID]&lt;/strong&gt; - ID процесса из команды выше.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://marand.ru/images/taskkill.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Запускаем службу.&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Edgerouter: авторизация по ssh ключу</title>
+      <link>https://marand.ru/edgerouter-ssh-key/</link>
+      <pubDate>Thu, 14 Oct 2021 16:52:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/edgerouter-ssh-key/</guid>
+      <description>&lt;p&gt;Оставлять 22 порт с авторизацией по паролю, ну&amp;hellip; такое. Тем более на роутере. Значит надо добавить авторизацию по ключу!&lt;/p&gt;
+&lt;p&gt;Если ключа у вас нет, то:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ~/.ssh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-keygen -t rsa -C &lt;span class=&#34;s2&#34;&gt;&amp;#34;email@example.com&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Далее надо скопировать публичный ключ на роутер, подставив ip своего роутера:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scp ~/.ssh/id_rsa.pub 192.168.1.1:/tmp&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;И импортируем ключ для пользовтеля :
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;configure 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;loadkey &amp;lt;user&amp;gt;/tmp/id_rsa.pub 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;commit 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;save 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;exit&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+Вы же заменили дефолтного ubnt, верно?&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Ground Control: папка с кешем и новые версии ios</title>
+      <link>https://marand.ru/ground-control-assets-folder/</link>
+      <pubDate>Sun, 16 May 2021 16:52:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/ground-control-assets-folder/</guid>
+      <description>&lt;p&gt;По одному из проектов получил на поддержку несколько сотен айпадов, которые разбросаны по стране. Часть из них предыдущий подрядчик зачем-то настроил ручками - купил домен и зарегистрировал кучу apple id.&lt;/p&gt;
+&lt;p&gt;Компания международная, есть своя &lt;mark&gt;MDM team&lt;/mark&gt;, которая с помощью &lt;mark&gt;GroundControl + VMWare AirWatch&lt;/mark&gt; управляет девайсами централизовано. Надо только установить. Почему это не сделано изначально? В ответ услышал что-то вроде &amp;ldquo;Сложно&amp;rdquo; и &amp;ldquo;Не разобрались&amp;rdquo;. Пришлось разбираться.&lt;/p&gt;
+&lt;p&gt;В общем, самый неприятный в настройке момент - выход новой версии ios. Когда апдейт становится доступным для всех известно, но когда его протестируют в команде MDM и опубликуют для обновления корпоративных устройств - тайна. Это может быть день, неделя, месяц. Так как установка &lt;mark&gt;AirWatch&lt;/mark&gt; в обязательном порядке обновляет версию ios, бывали ситуации когда при подключении очередного планшета GC хочет скачать новую прошивку, которая весит 6,5 ГБ. На мобильном интернете это очень долго.&lt;/p&gt;
+&lt;p&gt;Но выход есть!&lt;/p&gt;
+&lt;p&gt;Скачиваем прошивку после выхода (например, на &lt;a href=&#34;https://ipsw.me/signed&#34;&gt;ipsw.me&lt;/a&gt; или &lt;a href=&#34;http://www.enterpriseios.com/wiki/iOS_Devices&#34;&gt;Enterprise iOS&lt;/a&gt;) и не меняя имени файла, кладем в папку с кешем:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MAC:&lt;/strong&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/Library/Application Support/GroundControl/Content Downloads/&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Windows:&lt;/strong&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;%LOCALAPPDATA%\GroundControl\Content Downloads\&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Теперь я закидываю прошивку сразу после выхода и не жду &amp;ldquo;сюрпризов&amp;rdquo;.&lt;/p&gt;
+</description>
+    </item>
+    
+    
+  </channel>
+</rss>

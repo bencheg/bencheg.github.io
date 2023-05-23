@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your site description">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://marand.ru/images/favicon.jpg" />
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://marand.ru/edgerouter-ssh-key/" />
+    <title>Edgerouter: авторизация по ssh ключу</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://marand.ru">marand.ru</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="Посты">Посты</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>Edgerouter: авторизация по ssh ключу</h1>
+        <div>
+                <time>14 октября 2021</time>
+            <a href='/tags/edgerouter'>edgerouter</a></div>
+    </header><p>Оставлять 22 порт с авторизацией по паролю, ну&hellip; такое. Тем более на роутере. Значит надо добавить авторизацию по ключу!</p>
+<p>Если ключа у вас нет, то:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> ~/.ssh
+</span></span><span class="line"><span class="cl">ssh-keygen -t rsa -C <span class="s2">&#34;email@example.com&#34;</span></span></span></code></pre></div>
+<p>Далее надо скопировать публичный ключ на роутер, подставив ip своего роутера:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">scp ~/.ssh/id_rsa.pub 192.168.1.1:/tmp</span></span></code></pre></div></p>
+<p>И импортируем ключ для пользовтеля :
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">configure 
+</span></span><span class="line"><span class="cl">loadkey &lt;user&gt;/tmp/id_rsa.pub 
+</span></span><span class="line"><span class="cl">commit 
+</span></span><span class="line"><span class="cl">save 
+</span></span><span class="line"><span class="cl">exit</span></span></code></pre></div>
+Вы же заменили дефолтного ubnt, верно?</p>
+</article>
+
+        </main><footer id="footer">
+    
+</footer>
+
+
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(92841410, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/92841410" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ 
+</body>
+</html>

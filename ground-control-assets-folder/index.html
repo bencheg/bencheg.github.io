@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your site description">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://marand.ru/images/favicon.jpg" />
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://marand.ru/ground-control-assets-folder/" />
+    <title>Ground Control: папка с кешем и новые версии ios</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://marand.ru">marand.ru</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="Посты">Посты</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>Ground Control: папка с кешем и новые версии ios</h1>
+        <div>
+                <time>16 мая 2021</time>
+            </div>
+    </header><p>По одному из проектов получил на поддержку несколько сотен айпадов, которые разбросаны по стране. Часть из них предыдущий подрядчик зачем-то настроил ручками - купил домен и зарегистрировал кучу apple id.</p>
+<p>Компания международная, есть своя <mark>MDM team</mark>, которая с помощью <mark>GroundControl + VMWare AirWatch</mark> управляет девайсами централизовано. Надо только установить. Почему это не сделано изначально? В ответ услышал что-то вроде &ldquo;Сложно&rdquo; и &ldquo;Не разобрались&rdquo;. Пришлось разбираться.</p>
+<p>В общем, самый неприятный в настройке момент - выход новой версии ios. Когда апдейт становится доступным для всех известно, но когда его протестируют в команде MDM и опубликуют для обновления корпоративных устройств - тайна. Это может быть день, неделя, месяц. Так как установка <mark>AirWatch</mark> в обязательном порядке обновляет версию ios, бывали ситуации когда при подключении очередного планшета GC хочет скачать новую прошивку, которая весит 6,5 ГБ. На мобильном интернете это очень долго.</p>
+<p>Но выход есть!</p>
+<p>Скачиваем прошивку после выхода (например, на <a href="https://ipsw.me/signed">ipsw.me</a> или <a href="http://www.enterpriseios.com/wiki/iOS_Devices">Enterprise iOS</a>) и не меняя имени файла, кладем в папку с кешем:</p>
+<p><strong>MAC:</strong>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">~/Library/Application Support/GroundControl/Content Downloads/</span></span></code></pre></div></p>
+<p><strong>Windows:</strong>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">%LOCALAPPDATA%\GroundControl\Content Downloads\</span></span></code></pre></div></p>
+<p>Теперь я закидываю прошивку сразу после выхода и не жду &ldquo;сюрпризов&rdquo;.</p>
+</article>
+
+        </main><footer id="footer">
+    
+</footer>
+
+
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(92841410, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/92841410" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ 
+</body>
+</html>

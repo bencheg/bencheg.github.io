@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your site description">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://marand.ru/images/favicon.jpg" />
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://marand.ru/reset-cisco-switch/" />
+    <title>Сброс конфигурации свитчей Cisco</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://marand.ru">marand.ru</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="Посты">Посты</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>Сброс конфигурации свитчей Cisco</h1>
+        <div>
+                <time>26 октября 2022</time>
+            <a href='/tags/cisco'>cisco</a></div>
+    </header><p>Краткая шпаргалка по сбросу конфигурации свитчей Cisco на ios.  Имеется ввиду hard reset - сброс к заводским настройкам.</p>
+<p>Если логин/пароль известны, логинимся и вводим:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cisco_bb# write erase
+</span></span><span class="line"><span class="cl">Erasing the nvram filesystem will remove all files! Continue? <span class="o">[</span>confirm<span class="o">]</span>y<span class="o">[</span>OK<span class="o">]</span>
+</span></span><span class="line"><span class="cl">Erase of nvram: <span class="nb">complete</span>
+</span></span><span class="line"><span class="cl">cisco_bb#
+</span></span><span class="line"><span class="cl">cisco_bb# reload</span></span></code></pre></div>
+<p>Если доступа к конфигу нет, то включаем свитч с зажатой кнопкой  mode.
+Дальше в консоли появляется что-то такое, после чего отпускаем кнопку:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">The system has been interrupted prior to initializing the
+</span></span><span class="line"><span class="cl">flash filesystem.  The following commands will initialize
+</span></span><span class="line"><span class="cl">the flash filesystem, and finish loading the operating 
+</span></span><span class="line"><span class="cl">system software:
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    flash_init
+</span></span><span class="line"><span class="cl">    load_helper
+</span></span><span class="line"><span class="cl">    boot</span></span></code></pre></div></p>
+<p>Вводим: <strong>flash_init</strong></p>
+<p>Удаляем файлы конфигурации:</p>
+<p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">switch: del flash:config.text  
+</span></span><span class="line"><span class="cl">switch: del flash:vlan.dat</span></span></code></pre></div>
+И командуем загрузку:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">switch: boot</span></span></code></pre></div></p>
+</article>
+
+        </main><footer id="footer">
+    
+</footer>
+
+
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(92841410, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/92841410" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ 
+</body>
+</html>

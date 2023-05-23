@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your site description">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://marand.ru/images/favicon.jpg" />
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://marand.ru/umenshaem-razmer-msdb/" />
+    <title>Уменьшаем размер MSDB</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://marand.ru">marand.ru</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="Посты">Посты</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>Уменьшаем размер MSDB</h1>
+        <div>
+                <time>10 марта 2023</time>
+            <a href='/tags/mssql'>mssql</a></div>
+    </header><p>Размер системной базы msdb стал больше 11 гб, настало время ее почистить.</p>
+<p>Для начала, посмотрим какая таблица сколько места занимает:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">USE</span><span class="w"> </span><span class="n">MSDB</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">TableName</span><span class="p">,</span><span class="k">Min</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">create_date</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">CreateDate</span><span class="p">,</span><span class="n">ds</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">FileGroupName</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">total_pages</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span><span class="o">/</span><span class="mi">1024</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">SizeMB</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">tables</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">t</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">partitions</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">object_id</span><span class="o">=</span><span class="n">p</span><span class="p">.</span><span class="n">object_id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">allocation_units</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">partition_id</span><span class="o">=</span><span class="n">u</span><span class="p">.</span><span class="n">container_id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">data_spaces</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ds</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">data_space_id</span><span class="o">=</span><span class="n">ds</span><span class="p">.</span><span class="n">data_space_id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">ds</span><span class="p">.</span><span class="n">name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sizemb</span><span class="w"> </span><span class="k">desc</span></span></span></code></pre></div>
+<p>В моем случае это была таблица sysmaintplan_logdetail. Около 10 гб.</p>
+<p>Чистим:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">USE</span><span class="w"> </span><span class="n">MSDB</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">sysmaintplan_log</span><span class="p">]</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="p">[</span><span class="n">FK_sysmaintplan_log_subplan_id</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">sysmaintplan_logdetail</span><span class="p">]</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="p">[</span><span class="n">FK_sysmaintplan_log_detail_task_id</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">truncate</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">msdb</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">sysmaintplan_logdetail</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">truncate</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">msdb</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">sysmaintplan_log</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">sysmaintplan_log</span><span class="p">]</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="p">[</span><span class="n">FK_sysmaintplan_log_subplan_id</span><span class="p">]</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">([</span><span class="n">subplan_id</span><span class="p">])</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">REFERENCES</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">sysmaintplan_subplans</span><span class="p">]</span><span class="w"> </span><span class="p">([</span><span class="n">subplan_id</span><span class="p">]);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">sysmaintplan_logdetail</span><span class="p">]</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="p">[</span><span class="n">FK_sysmaintplan_log_detail_task_id</span><span class="p">]</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">([</span><span class="n">task_detail_id</span><span class="p">])</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">REFERENCES</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">sysmaintplan_log</span><span class="p">]</span><span class="w"> </span><span class="p">([</span><span class="n">task_detail_id</span><span class="p">])</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">CASCADE</span><span class="p">;</span></span></span></code></pre></div></p>
+<p>После этого обязательно сжимаем базу:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">DBCC</span><span class="w"> </span><span class="n">SHRINKFILE</span><span class="w"> </span><span class="p">(</span><span class="n">MSDBData</span><span class="p">,</span><span class="w"> </span><span class="mi">512</span><span class="p">)</span></span></span></code></pre></div></p>
+<p>Проверяем результат:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">8</span><span class="p">.</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="n">space_used</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FILEPROPERTY</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SpaceUsed&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">8</span><span class="p">.</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">database_files</span></span></span></code></pre></div></p>
+<p>И добавить еще очистку логов джобов и бекапов:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">DateBefore</span><span class="w"> </span><span class="n">DATETIME</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">DateBefore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DATEADD</span><span class="p">(</span><span class="k">DAY</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">GETDATE</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">EXEC</span><span class="w"> </span><span class="n">msdb</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">sp_purge_jobhistory</span><span class="w"> </span><span class="o">@</span><span class="n">oldest_date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">DateBefore</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">DateBefore</span><span class="w"> </span><span class="n">DATETIME</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">DateBefore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DATEADD</span><span class="p">(</span><span class="k">DAY</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">60</span><span class="p">,</span><span class="w"> </span><span class="n">GETDATE</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">EXEC</span><span class="w"> </span><span class="n">msdb</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">sp_delete_backuphistory</span><span class="w"> </span><span class="o">@</span><span class="n">oldest_date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">DateBefore</span></span></span></code></pre></div></p>
+</article>
+
+        </main><footer id="footer">
+    
+</footer>
+
+
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(92841410, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/92841410" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ 
+</body>
+</html>

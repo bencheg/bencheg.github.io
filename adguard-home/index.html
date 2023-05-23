@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your site description">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://marand.ru/images/favicon.jpg" />
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://marand.ru/adguard-home/" />
+    <title>AdGuard Home - блокируем рекламу во всем доме.</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://marand.ru">marand.ru</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="Посты">Посты</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>AdGuard Home - блокируем рекламу во всем доме.</h1>
+        <div>
+                <time>обновлено 01.01.2023</time>
+            <a href='/tags/adguard'>adguard</a></div>
+    </header><p><img src="/images/adguard.png" alt="adguard logo"></p>
+<p>Adguard Home - бесплатное ПО с открытым исходным кодом для блокировки рекламы, трекинга, фишинга и прочей нечисти на всех устройствах в сети: планшеты, телефоны, приставки, телевизоры и прочие роботы-пылесосы.
+Так что китайцы не узнают от вашего робота-пылесоса сколько у вас комнат.</p>
+<h1 id="что-нужно">Что нужно.</h1>
+<p>Что-то, куда можно установить AdGuard, у меня это Raspberry Pi 4. Но это может быть и роутер, и сетевой накопитель Synology/QNAP. Да вообще всё что угодно, на самом деле. Ну, кроме робота-пылесоса.</p>
+<h1 id="установка">Установка</h1>
+<p>Установка очень <a href="https://github.com/AdguardTeam/AdGuardHome/wiki/Raspberry-Pi">простая</a>, как инструкция из Икеи. Заходим по ssh и вводим:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">wget <span class="s1">&#39;https://static.adguard.com/adguardhome/release/AdGuardHome_linux_armv6.tar.gz&#39;</span>
+</span></span><span class="line"><span class="cl">tar -f AdGuardHome_linux_armv6.tar.gz -x -v</span></span></code></pre></div>
+Правда, стоит выбрать пакет под свою <a href="https://github.com/AdguardTeam/AdGuardHome/wiki/Platforms#releases">архитектуру</a>.</p>
+<p>Затем:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> ./AdGuardHome/
+</span></span><span class="line"><span class="cl">sudo ./AdGuardHome -s install</span></span></code></pre></div></p>
+<p>Всё, установили. Переходим по http://192.168..:3000/ и за 5 простых шагов настраиваем.  192.168.. тут - ip устройства, куда установили AdGuard.</p>
+<h1 id="что-касается-фильтров-и-настройки-dns">Что касается фильтров и настройки DNS</h1>
+<p>Я выбрал следующие Upstream DNS-серверы:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">tls://security.cloudflare-dns.com
+</span></span><span class="line"><span class="cl">https://security.cloudflare-dns.com/dns-query</span></span></code></pre></div>
+И выбрал пункт &ldquo;Параллельные DNS запросы&rdquo;, для ускорения обработки запросов. Что бы DNS запросы шифровались, нужно перейти в &ldquo;Настройки&rdquo; - &ldquo;Настройки шифрования&rdquo; и поставить галку &ldquo;Включить шифрование&rdquo;.</p>
+<p>Перепробовав несколько фильтров остановился на этих:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
+</span></span><span class="line"><span class="cl">https://adaway.org/hosts.txt
+</span></span><span class="line"><span class="cl">https://v.firebog.net/hosts/Easyprivacy.txt
+</span></span><span class="line"><span class="cl">https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt
+</span></span><span class="line"><span class="cl">https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_1_Russian/filter.txt
+</span></span><span class="line"><span class="cl">https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_11_Mobile/filter.txt</span></span></code></pre></div>
+<h1 id="устанавливаем-сертификат-для-корректной-работы-шифрования">Устанавливаем сертификат для корректной работы шифрования</h1>
+<p>Ставить будем бесплатный <mark>Let`s Encrypt</mark>. Для подтверждения домена не хочется открывать веб-интерфейс наружу и заморачиваться с правилами файрвола, поэтому воспользуюсь DNS подтверждением от <mark>CloudFlare</mark>.</p>
+<p>Делегируем домен на CloudFlare. Меняем ns на те, что предлагает CF и ждем обновления зоны.</p>
+<p>Устанавливаем необходимые пакеты:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo apt install certbot python3-certbot-dns-cloudflare</span></span></code></pre></div>
+Создаем файл с авторизационными данными:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir /secrets/ 
+</span></span><span class="line"><span class="cl">touch /secrets/cloudflare.ini
+</span></span><span class="line"><span class="cl">nano /secrets/cloudflare.ini </span></span></code></pre></div>
+Вставляем в файл token для доступа к CF. Нам пойдет токен из шаблона <mark>&ldquo;Edit zone DNS&rdquo;</mark></p>
+<p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">dns_cloudflare_api_token</span> <span class="o">=</span> token</span></span></code></pre></div>
+Меняем права:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo chmod <span class="m">0700</span> /secrets/</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo chmod <span class="m">0400</span> /secrets/cloudflare.ini</span></span></code></pre></div>
+Отправляем запрос на сертификат:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials /home/pi/secrets/cloudflare.ini -d example.com,*.example.com --preferred-challenges dns-01</span></span></code></pre></div>
+Не забудьте поменять домен.
+Сертификаты сохранятся в <code>/etc/letsencrypt/live/example.com/</code></p>
+<p>Осталось добавить их в AdGuard. &ldquo;Настройки&rdquo; - &ldquo;Настройки шифрования&rdquo;. И вставляем наши сертификаты.</p>
+<p><img src="/images/adguard-letsencrypt.png" alt="adguard logo"></p>
+<p>Вот и всё.</p>
+</article>
+
+        </main><footer id="footer">
+    
+</footer>
+
+
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(92841410, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/92841410" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ 
+</body>
+</html>

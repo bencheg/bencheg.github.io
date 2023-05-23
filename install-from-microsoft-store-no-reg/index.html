@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your site description">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://marand.ru/images/favicon.jpg" />
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://marand.ru/install-from-microsoft-store-no-reg/" />
+    <title>Как установить приложение из Microsoft Store без регистрации</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://marand.ru">marand.ru</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="Посты">Посты</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>Как установить приложение из Microsoft Store без регистрации</h1>
+        <div>
+                <time>26 февраля 2023</time>
+            <a href='/tags/windows'>windows</a></div>
+    </header><p><mark>Microsoft</mark>  со своим магазином приложений только усложняет жизнь простым людям, которым не нужна учетка для пользования своим компьютером. Например, что бы скачать плагин поддержки <strong>HEIF/HEIC</strong> нужно регистрироваться/логинится с учетной записью microsoft.</p>
+<p>Но есть способ проще.</p>
+<p>Открываем <a href="https://github.com/MattiasC85/Scripts/blob/master/OSD/Download-AppxFromStore.ps1">скрипт</a>, нажимаем кнопку <strong>RAW</strong>, затем <strong>Файл - Сохранить как</strong> (или <kbd>ctrl</kbd> + <kbd>s</kbd>). Запускаем, вставляем ссылку на приложение в Microsoft Store и начнется скачивание приложения.</p>
+<p><img src="/images/microsoft_store_link.png" alt="" title="Вставляем ссылку"></p>
+<p>Да, вид ссылки должен быть такой:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">https://www.microsoft.com/store/apps/9pmmsr1cgpwg
+</span></span><span class="line"><span class="cl">https://www.microsoft.com/en-us/p/heif-image-extensions/9pmmsr1cgpwg
+</span></span><span class="line"><span class="cl">https://www.microsoft.com/ru-ru/p/heif-image-extensions/9pmmsr1cgpwg</span></span></code></pre></div></p>
+<p>Скрипт скачивает все возможные варианты поставки:</p>
+<p><img src="/images/microsoft_store_dl.png" alt="" title="Идет скачивание"></p>
+<p>Выбираем нужную платформу и устанавливаем. Если не знаете какая, пробуйте x64, с расширением <mark>appx</mark>.</p>
+<p><img src="/images/downloaded.png" alt=""></p>
+<p>Если Windows вдруг спрашивает чем открыть .appx, то проще будет установить через PowerShell:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Add-AppxPackage -Path <span class="s2">&#34;C:\Path\to\File.Appx&#34;</span></span></span></code></pre></div>
+</article>
+
+        </main><footer id="footer">
+    
+</footer>
+
+
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(92841410, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/92841410" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ 
+</body>
+</html>
