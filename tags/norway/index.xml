@@ -13,6 +13,30 @@
     
     
     <item>
+      <title>Подключаемся к консоли сетевого оборудования на MacOS</title>
+      <link>https://marand.ru/cisco_configuration_on_macos/</link>
+      <pubDate>Fri, 17 Nov 2023 07:52:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/cisco_configuration_on_macos/</guid>
+      <description>&lt;p&gt;Небольшая памятка о том, как подключиться к консоли Cisco на MacOS.
+Разумеется, это не только для Cisco, так можно подключиться к любой консоли да и вообще к любому последовательному порту.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Открываем терминал&lt;/li&gt;
+&lt;li&gt;Ищем нужный usb:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;macbook:user$ &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /dev
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;macbook:user$ ls -ltr /dev/*usb*
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;crw-rw-rw- &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; root wheel 9, &lt;span class=&#34;m&#34;&gt;66&lt;/span&gt; Apr &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; 16:46 tty.usbmodem1a21&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Подключаемся к порту, подставляя в команду имя устройства и скорость (9600):&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;macbook:user$ screen /dev/tty.usbmodem1a21 &lt;span class=&#34;m&#34;&gt;9600&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
       <title>Регистрация COM компоненты 1С Предприятия comcntr.dll (V83.ComConnector)</title>
       <link>https://marand.ru/registraciya-v83-comconnector/</link>
       <pubDate>Sat, 11 Mar 2023 16:56:19 +0300</pubDate>

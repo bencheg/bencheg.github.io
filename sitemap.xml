@@ -2,23 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://marand.ru/tags/1c/</loc>
-    <lastmod>2023-03-11T16:56:19+03:00</lastmod>
+    <loc>https://marand.ru/tags/cisco/</loc>
+    <lastmod>2023-11-17T07:52:19+03:00</lastmod>
+  </url><url>
+    <loc>https://marand.ru/tags/howto/</loc>
+    <lastmod>2023-11-17T07:52:19+03:00</lastmod>
+  </url><url>
+    <loc>https://marand.ru/tags/macos/</loc>
+    <lastmod>2023-11-17T07:52:19+03:00</lastmod>
   </url><url>
     <loc>https://marand.ru/</loc>
-    <lastmod>2023-03-11T16:56:19+03:00</lastmod>
+    <lastmod>2023-11-17T07:52:19+03:00</lastmod>
   </url><url>
     <loc>https://marand.ru/post/</loc>
-    <lastmod>2023-03-11T16:56:19+03:00</lastmod>
+    <lastmod>2023-11-17T07:52:19+03:00</lastmod>
   </url><url>
     <loc>https://marand.ru/tags/</loc>
+    <lastmod>2023-11-17T07:52:19+03:00</lastmod>
+  </url><url>
+    <loc>https://marand.ru/cisco_configuration_on_macos/</loc>
+    <lastmod>2023-11-17T07:52:19+03:00</lastmod>
+  </url><url>
+    <loc>https://marand.ru/tags/1c/</loc>
     <lastmod>2023-03-11T16:56:19+03:00</lastmod>
   </url><url>
     <loc>https://marand.ru/registraciya-v83-comconnector/</loc>
     <lastmod>2023-03-11T16:56:19+03:00</lastmod>
-  </url><url>
-    <loc>https://marand.ru/tags/macos/</loc>
-    <lastmod>2023-03-11T16:52:19+03:00</lastmod>
   </url><url>
     <loc>https://marand.ru/macos-oshibka-podklyucheniya-exfat-diska/</loc>
     <lastmod>2023-03-11T16:52:19+03:00</lastmod>
@@ -58,9 +67,6 @@
   </url><url>
     <loc>https://marand.ru/adguard-home/</loc>
     <lastmod>2023-01-01T16:52:19+03:00</lastmod>
-  </url><url>
-    <loc>https://marand.ru/tags/cisco/</loc>
-    <lastmod>2022-10-26T16:52:19+03:00</lastmod>
   </url><url>
     <loc>https://marand.ru/reset-cisco-switch/</loc>
     <lastmod>2022-10-26T16:52:19+03:00</lastmod>
