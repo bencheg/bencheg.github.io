@@ -6,9 +6,31 @@
     <description>Recent content on marand.ru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>RU-ru</language>
-    <lastBuildDate>Fri, 17 Nov 2023 07:52:19 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 20 Feb 2024 12:22:19 +0300</lastBuildDate>
     
 	<atom:link href="https://marand.ru/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+    <item>
+      <title>Подключаемся к существующему серверу Outline</title>
+      <link>https://marand.ru/connect_outline/</link>
+      <pubDate>Tue, 20 Feb 2024 12:22:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/connect_outline/</guid>
+      <description>&lt;p&gt;Настраивал сервер на одном компьютере, а понадобился доступ с другого. Настроить проще простого:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Подключаемся к серверу по ssh&lt;/li&gt;
+&lt;li&gt;Смотрим содержимое файла &lt;code&gt;cat /opt/outline/access.txt&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Подставляем полученное содержимое в шаблон:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;apiUrl&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;сюда_ссылку&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;certSha256&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;сюда_хеш&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Вставляем полученную строку в Outline Manager&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://marand.ru/images/outline_add1.png&#34; alt=&#34;adguard logo&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
     
     
     
