@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your site description">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://marand.ru/images/favicon.jpg" />
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://marand.ru/install_chromium-gost/" />
+    <title>Устанавливаем Chromium-GOST для всех пользователей </title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://marand.ru">marand.ru</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="Посты">Посты</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>Устанавливаем Chromium-GOST для всех пользователей </h1>
+        <div>
+                <time>23 февраля 2024</time>
+            <a href='/tags/howto'>howto</a></div>
+    </header><p>Chromium-GOST - опенсорсный проект на базе движка chromium с поддержкой ГОСТ криптографии. Сейчас для взаимодействия с государственными органами вариантов особо нет - или Яндекс.Браузер или Chromium-GOST.</p>
+<p>У меня для каждой организации своя виртуалка на достаточно старой Windows - Server 2012R2. Последняя версия Chromium-GOST которая работает со старыми windows - <strong>chromium-gost-109.0.5414.141</strong></p>
+<p>По умолчанию инсталлятор ставит браузер только для текущего пользователя. Но есть способ установить браузер для всех пользователей системы:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">chromium-gost-109.0.5414.141-windows-amd64-installer.exe --system-level --install</span></span></code></pre></div></p>
+<h3 id="автоматически-ставим-нужные-расширения">Автоматически ставим нужные расширения</h3>
+<p>Также, можно указать браузеру что бы он установил нужные расширения при запуске. Например, я ставлю сразу КриптоПро ЭЦП Browser-plugin. Для этого нужно добавить следующую ветку в реестр:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">REG add HKEY_LOCAL_MACHINE<span class="se">\S</span>OFTWARE<span class="se">\P</span>olicies<span class="se">\C</span>hromium<span class="se">\E</span>xtensionInstallForcelist /v <span class="m">1</span> /t REG_SZ /d <span class="s2">&#34;iifchhfnnmpdbibifmljnfjhpififfog;https://clients2.google.com/service/update2/crx&#34;</span> /f</span></span></code></pre></div>
+Здесь <code>iifchhfnnmpdbibifmljnfjhpififfog</code> это идентификатор расширения в магазине <a href="https://chromewebstore.google.com/">Google Chrome</a>.</p>
+<p>На картинке ниже, на примере расширения uBlock Origin - идентификатор в URL:</p>
+<p><img src="/images/ublock.png" alt="Находим идентификатор расширения!" title="Google Chrome Store"></p>
+<p>Таким образом можно добавить любое расширение из магазина расширений.</p>
+</article>
+
+        </main><footer id="footer">
+    
+</footer>
+
+
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(92841410, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/92841410" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ 
+</body>
+</html>

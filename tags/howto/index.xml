@@ -6,9 +6,31 @@
     <description>Recent content in howto on marand.ru</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>RU-ru</language>
-    <lastBuildDate>Tue, 20 Feb 2024 12:22:19 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 23 Feb 2024 12:22:19 +0300</lastBuildDate>
     
 	<atom:link href="https://marand.ru/tags/howto/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+    <item>
+      <title>Устанавливаем Chromium-GOST для всех пользователей </title>
+      <link>https://marand.ru/install_chromium-gost/</link>
+      <pubDate>Fri, 23 Feb 2024 12:22:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/install_chromium-gost/</guid>
+      <description>&lt;p&gt;Chromium-GOST - опенсорсный проект на базе движка chromium с поддержкой ГОСТ криптографии. Сейчас для взаимодействия с государственными органами вариантов особо нет - или Яндекс.Браузер или Chromium-GOST.&lt;/p&gt;
+&lt;p&gt;У меня для каждой организации своя виртуалка на достаточно старой Windows - Server 2012R2. Последняя версия Chromium-GOST которая работает со старыми windows - &lt;strong&gt;chromium-gost-109.0.5414.141&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;По умолчанию инсталлятор ставит браузер только для текущего пользователя. Но есть способ установить браузер для всех пользователей системы:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;chromium-gost-109.0.5414.141-windows-amd64-installer.exe --system-level --install&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;h3 id=&#34;автоматически-ставим-нужные-расширения&#34;&gt;Автоматически ставим нужные расширения&lt;/h3&gt;
+&lt;p&gt;Также, можно указать браузеру что бы он установил нужные расширения при запуске. Например, я ставлю сразу КриптоПро ЭЦП Browser-plugin. Для этого нужно добавить следующую ветку в реестр:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;REG add HKEY_LOCAL_MACHINE&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;OFTWARE&lt;span class=&#34;se&#34;&gt;\P&lt;/span&gt;olicies&lt;span class=&#34;se&#34;&gt;\C&lt;/span&gt;hromium&lt;span class=&#34;se&#34;&gt;\E&lt;/span&gt;xtensionInstallForcelist /v &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; /t REG_SZ /d &lt;span class=&#34;s2&#34;&gt;&amp;#34;iifchhfnnmpdbibifmljnfjhpififfog;https://clients2.google.com/service/update2/crx&amp;#34;&lt;/span&gt; /f&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+Здесь &lt;code&gt;iifchhfnnmpdbibifmljnfjhpififfog&lt;/code&gt; это идентификатор расширения в магазине &lt;a href=&#34;https://chromewebstore.google.com/&#34;&gt;Google Chrome&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;На картинке ниже, на примере расширения uBlock Origin - идентификатор в URL:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://marand.ru/images/ublock.png&#34; alt=&#34;Находим идентификатор расширения!&#34; title=&#34;Google Chrome Store&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Таким образом можно добавить любое расширение из магазина расширений.&lt;/p&gt;
+</description>
+    </item>
     
     
     
