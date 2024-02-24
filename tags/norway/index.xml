@@ -13,6 +13,26 @@
     
     
     <item>
+      <title>Как найти ключ для CryptoPro</title>
+      <link>https://marand.ru/cryptopro_csp_serial/</link>
+      <pubDate>Sat, 24 Feb 2024 10:02:19 +0300</pubDate>
+      
+      <guid>https://marand.ru/cryptopro_csp_serial/</guid>
+      <description>&lt;div align=&#34;center&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;https://marand.ru/images/logo_csp_small.png&#34; alt=&#34;cryptopro&#34;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;В свое время регулярно покупались лицензии для КриптоПро CSP и как не старались вести учет лицензий, все равно накосячили. Ноутбуки меняются, не всегда успевали вносить во внутреннюю wiki активируемые лицензии.&lt;/p&gt;
+&lt;p&gt;Хорошо (нет) что КриптоПро хранит серийный номер в открытом виде в реестре - раздел &lt;strong&gt;ProductID&lt;/strong&gt;. Это позволит нам удаленно собрать информацию со всех компьютеров в сети.&lt;/p&gt;
+&lt;p&gt;Для &lt;strong&gt;КриптоПро CSP 4.x&lt;/strong&gt;:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\7AB5E7046046FB044ACD63458B5F481C\InstallProperties&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Для &lt;strong&gt;КриптоПро CSP 5.x&lt;/strong&gt;:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\08F19F05793DC7340B8C2621D83E5BE5\InstallProperties&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
       <title>Устанавливаем Chromium-GOST для всех пользователей </title>
       <link>https://marand.ru/install_chromium-gost/</link>
       <pubDate>Fri, 23 Feb 2024 12:22:19 +0300</pubDate>
